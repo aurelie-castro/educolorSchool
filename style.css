@@ -1,7 +1,7 @@
 body {
     margin: 0;
     background-color: #2AACE2;
-    background-image: url(assets/confetti.png);
+    background-image: url(assets/school-pattern.png);
 }
 /*phones*/
 @media only screen and (max-width: 980px) {
