@@ -74,7 +74,7 @@ console.warn = () => {};
 function preload ()
 {
     //image de cover (educolor) avec le bouton start    
-    var bgImage = this.load.image('testEdu', 'assets/Cover-01.jpg');
+    var bgImage = this.load.image('testEdu', 'assets/CoverSchool.jpg');
     
     //--------brushes-------
     //white
@@ -130,30 +130,16 @@ function preload ()
     this.load.image('bg10', 'assets/school10.jpg');
     this.load.image('bg11', 'assets/school11.jpg');
     this.load.image('bg12', 'assets/school12.jpg');
-//    this.load.image('bg13', 'assets/p6-1.jpeg');
-//    this.load.image('bg14', 'assets/p6-2.jpeg');
-//    this.load.image('bg15', 'assets/p6-3.jpeg');
-//    this.load.image('bg16', 'assets/p7-1.jpeg');
-//    this.load.image('bg17', 'assets/p7-2.jpeg');
     
     //-----rangées de cercles-----------
-    this.load.image('colorPalette', 'assets/couleurs-version3.png');
-    
-    
-//    this.load.audio('testAudio', 'assets/airport.wav');
-    
+    this.load.image('colorPalette', 'assets/couleurs-version3.png');    
 }
 
 function create ()
 {
-    
-//    testSound = this.sound.add('testAudio');
-    
     //---tests for responsive---
     let screenWidth = screen.width;
     let screenHeight = screen.height;
-//    console.log( 'the screen width is ' + screenWidth);
-//    console.log( 'the screen height is ' + screenHeight);
     
     //---start menu of game (cover)---
     bgImage = this.add.image(180, 320, 'testEdu');
@@ -163,7 +149,6 @@ function create ()
     
     //makes all images invisible
     bg = this.add.image(180, 315, 'bg');
-//    bg.setVisible(false);
     
     bg2 = this.add.image(180, 315, 'bg2');    
     bg2.setVisible(false);
@@ -188,10 +173,7 @@ function create ()
     
     bg9 = this.add.image(180, 315, 'bg9');
     bg9.setVisible(false);
-    
-    //bg10 = this.add.image(180, 315, 'bg10');
-    //bg10.setVisible(false);
-    
+        
     //retrieves value of dessin fini = the number of times 'next' has been clicked
     dessinFini = localStorage.getItem("dessin fini");
     //makes the corresponding image visible depending on that value
@@ -230,7 +212,6 @@ function create ()
     }
     
     if(dessinFini === "9"){
-//        localStorage.clear();
         //clears the storage for the cover
         sessionStorage.clear();
         //resets the counter to 0 to restart
@@ -252,11 +233,9 @@ function create ()
     erasingColors = false;
     
     gameStarted = sessionStorage.getItem("start clicked");
-//    console.log("has start been clicked ? " + gameStarted);
     if (gameStarted === "yes"){
         bgImage.setVisible(false);
     }
-//    console.log(value +" is the value for the bg image");
     
     //----------------interaction des brush = dessin---------------------------
     
@@ -452,13 +431,6 @@ function create ()
             }
             
         }
-//        else if(pointer.x > 8 && pointer.y > 540){
-//            console.log("stoooop");
-//            
-//        }
-        
-        
-
     }, this);
     
     
@@ -466,11 +438,7 @@ function create ()
 
     //-----------------changement de couleur----------------------
     //quand l'user clique sur un des cercles pour choisir la couleur de sa brush
-    this.input.on('pointerdown', function(pointer){
-//        console.log(pointer.x);
-//        console.log(pointer.y);
-    
-        
+    this.input.on('pointerdown', function(pointer){        
         if(pointer.x >= 134 && pointer.x <= 164  && pointer.y >= 21 && pointer.y <=49){
             //couleur choisie
 //            console.log('cliqué sur le yellow');
@@ -708,7 +676,6 @@ function create ()
         
         //interaction si clic sur le btn play du start
          if(pointer.x >= 44 && pointer.x <= 157  && pointer.y >= 383 && pointer.y <=497){
-//             console.log("cliqué sur start");
              bgImage.setVisible(false);
              startClicked = true;
             sessionStorage.setItem("start clicked", "yes");
@@ -717,14 +684,12 @@ function create ()
         //interaction si clic sur la gomme
         if(pointer.x >= 3 && pointer.x <= 92  && pointer.y >= 560 && pointer.y <=629){
             erasingColors = true;
-//            console.log("clicked on eraser");
             currentlyColoring = false;
          }
         
     //-------------interaction du bouton next-------------
 //        next = this.add.text(150,550, 'NEXT');
         if(pointer.x >= 273 && pointer.x <= 356  && pointer.y >= 562 && pointer.y <=636){
-//            console.log("next cliqué");
             bg.setVisible(false);
             next1Clicked = true;
             location.reload();
